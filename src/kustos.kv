@@ -1,10 +1,27 @@
-GridLayout:
-    cols: 2
-    Label:
-        text: "Source Dir"
-    TextInput:
-        multiline: False
-    Label:
-        text: "Destination Dir"
-    TextInput:
-        multiline: False
+BoxLayout:
+    orientation: "vertical"
+    GridLayout:
+        size_hint: (1, 0.2)
+        cols: 3
+        row_force_default: True
+        row_default_height: 42
+        Label:
+            text: "Source Dir"
+        TextInput:
+            multiline: False
+        Button:
+            text: "Browse"
+        Label:
+            text: "Destination Dir"
+        TextInput:
+            multiline: False
+        Button:
+            text: "Browse"
+    GridLayout:
+        cols: 2
+        row_force_default: True
+        row_default_height: 42
+        Button:
+            text: "Copy"
+        Button:
+            text: "Pass"
