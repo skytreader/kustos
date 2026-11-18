@@ -13,7 +13,7 @@ class KustosApp(App):
         curdir = dirname(__file__)
         self.files = [filename for filename in glob(join(curdir, "images", "*"))]
         
-        root.add_widget(Image(source=self.files[0]))
+        self.root.ids["main_img"].source = self.files[0]
 
     def on_pause(self):
         return True
