@@ -13,10 +13,15 @@ class KustosApp(App):
         curdir = dirname(__file__)
         self.files = [filename for filename in glob(join(curdir, "images", "*"))]
         
-        self.root.ids["main_img"].source = self.files[0]
+        self.image_idx = 0
+        self.root.ids["main_img"].source = self.files[self.image_idx]
 
     def on_pause(self):
         return True
+
+    def next_image(self):
+        self.image_idx += 1
+        self.root.ids["main_img"].source = self.files[self.image_idx]
 
 if __name__ == "__main__":
     KustosApp().run()
