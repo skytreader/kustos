@@ -11,6 +11,7 @@ BoxLayout:
             multiline: False
         Button:
             text: "Browse"
+            on_release: app.show_load()
         Label:
             text: "Destination Dir"
         TextInput:
@@ -30,3 +31,26 @@ BoxLayout:
     Image:
         size_hint: (1, 0.7)
         id: main_img
+
+<LoadDialog>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        Label:
+            size_hint: (None, 0.1)
+            text: root.rootpath
+        FileChooserListView:
+            id: filechooser
+            rootpath: root.rootpath
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: app.close_popup()
+
+            Button:
+                text: "Load"
+                on_release: app.callback_load(filechooser.path, filechooser.selection)
