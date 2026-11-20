@@ -38,11 +38,14 @@ BoxLayout:
         pos: root.pos
         orientation: "vertical"
         Label:
-            size_hint: (None, 0.1)
+            id: curpath
+            size_hint: (1, 0.1)
             text: root.rootpath
         FileChooserListView:
             id: filechooser
             rootpath: root.rootpath
+            dirselect: True
+            on_selection: curpath.text = self.selection and self.selection[0]
 
         BoxLayout:
             size_hint_y: None
